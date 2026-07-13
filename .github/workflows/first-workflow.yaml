@@ -16,7 +16,7 @@ jobs:
         run: pwd
 
       - name: List Files
-        run: ls
+        run: ls -la
 
       - name: Print Message
         run: echo "Hello Rajesh!"
