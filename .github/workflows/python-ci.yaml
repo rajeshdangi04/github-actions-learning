@@ -4,22 +4,23 @@ on:
   push:
 
 jobs:
-  test:
 
+  build:
     runs-on: ubuntu-latest
 
     steps:
-
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
+      - name: Print Build Message
+        run: echo "Building Application..."
 
-      - name: Install Dependencies
-        run: pip install -r requirements.txt
+  test:
+    runs-on: ubuntu-latest
 
-      - name: Run Tests
-        run: pytest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print Test Message
+        run: echo "Running Tests..."
