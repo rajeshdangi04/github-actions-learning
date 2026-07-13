@@ -1,4 +1,4 @@
-name: Python CI
+name: Artifact Demo
 
 on:
   push:
@@ -9,12 +9,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Building..."
-      - run: sleep 15
+      - uses: actions/checkout@v4
+
+      - name: Create File
+        run: echo "Hello Rajesh" > message.txt
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: my-file
+          path: message.txt
 
   test:
     needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - run: echo "Testing..."
+      - name: Download Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: my-file
+
+      - name: Show File
+        run: cat message.txt
