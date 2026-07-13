@@ -8,5 +8,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Print Working Directory
+        run: pwd
+
+      - name: List Files
+        run: ls
+
       - name: Print Message
         run: echo "Hello Rajesh!"
