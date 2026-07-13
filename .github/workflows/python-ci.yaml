@@ -9,18 +9,12 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Print Build Message
-        run: echo "Building Application..."
+      - run: echo "Building..."
+      - run: sleep 15
 
   test:
+    needs: build
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      - name: Print Test Message
-        run: echo "Running Tests..."
+      - run: echo "Testing..."
